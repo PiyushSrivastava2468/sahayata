@@ -1,6 +1,6 @@
 {
-  "name": "Sahayata - Campus Safety & Resource Assistant",
-  "description": "AI-powered multilingual panic and resource assistant for women and students on college campuses with rapid triage, emergency mode, and real-time offline fallback.",
-  "requestFramePermissions": ["geolocation", "microphone"],
+  "name": "Sahayak - AI Career & Opportunity Navigator",
+  "description": "Multilingual (Hinglish + English) AI career assistant for tier-2/3 college students in India providing personalized internships, scholarships, skill roadmaps, and resume guidance.",
+  "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
