@@ -24,6 +24,7 @@ import {
   ResourceCategory,
 } from './types';
 import { Shield, MapPin, HeartPulse, AlertTriangle, Sparkles, BookOpen, FileCheck, PhoneCall, ExternalLink, ChevronRight } from 'lucide-react';
+import { calculateDistanceMeters, heuristicClassify } from './utils/triageFallback';
 
 export default function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -65,17 +66,25 @@ export default function App() {
     }
   }, []);
 
-  // Fetch initial resources from server
+  // Fetch initial resources from server with instant client fallback
   useEffect(() => {
     fetch(`/api/resources?lat=${userCoords.lat}&long=${userCoords.long}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         if (data.resources && Array.isArray(data.resources)) {
           setResources(data.resources);
         }
       })
       .catch((err) => {
-        console.warn('Could not fetch server resources, using seeded campus data:', err);
+        console.warn('Could not fetch server resources, using dynamic client calculation:', err);
+        const mapped = INITIAL_RESOURCES.map((r) => ({
+          ...r,
+          distance_meters: calculateDistanceMeters(userCoords.lat, userCoords.long, r.lat, r.long),
+        })).sort((a, b) => (a.distance_meters || 0) - (b.distance_meters || 0));
+        setResources(mapped);
       });
   }, [userCoords]);
 
@@ -84,21 +93,32 @@ export default function App() {
     setIsLoading(true);
 
     try {
-      const resp = await fetch('/api/classify-intent', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: queryText,
-          lat: userCoords.lat,
-          long: userCoords.long,
-        }),
-      });
+      let result: IntentClassificationResponse | null = null;
+      try {
+        const resp = await fetch('/api/classify-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query: queryText,
+            lat: userCoords.lat,
+            long: userCoords.long,
+          }),
+        });
 
-      if (!resp.ok) {
-        throw new Error(`Server returned ${resp.status}`);
+        if (resp.ok) {
+          result = await resp.json();
+        } else {
+          console.warn(`Server API responded with ${resp.status}, engaging client triage`);
+        }
+      } catch (networkErr) {
+        console.warn('Network error calling API, engaging client triage:', networkErr);
       }
 
-      const result: IntentClassificationResponse = await resp.json();
+      // If backend API returned error or was unreachable, run instant offline heuristic triage
+      if (!result) {
+        result = heuristicClassify(queryText, userCoords.lat, userCoords.long);
+      }
+
       setLastClassification(result);
 
       // Add to queries state for instant feedback
@@ -135,12 +155,7 @@ export default function App() {
         setSelectedCategory(result.suggested_category);
       }
     } catch (err) {
-      console.warn('Triage request failed, handling locally:', err);
-      // Fallback local check
-      const isEmg = queryText.toLowerCase().includes('unsafe') || queryText.toLowerCase().includes('medical') || queryText.toLowerCase().includes('harass');
-      if (isEmg) {
-        setHasActiveEmergency(true);
-      }
+      console.warn('Triage request failed unexpectedly:', err);
     } finally {
       setIsLoading(false);
     }
