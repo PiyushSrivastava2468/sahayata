@@ -73,7 +73,7 @@ export function getFallbackChatResponse(query: string, profile: StudentProfile):
         `1. **Local Kirana Billing / Ledger Web App**: React + Supabase use karke QR receipt generation aur monthly khata ledger banayein.\n` +
         `2. **Campus Peer Notes & PyQ Repository**: AKTU/UPTU ke previous year questions aur student notes sharing platform with upvote system.\n` +
         `3. **Hostel Mess Food Waste Tracker**: Weekly menu analytics aur student headcount voting system.\n\n` +
-        `Aapne abhi tak koi project banaya hai? Agar haan, toh Sahayak ke 'Resume Helper' tool me details daaliye, main turant STAR bullet points bana dunga!`,
+        `Aapne abhi tak koi project banaya hai? Agar haan, toh Sahayata ke 'Resume Helper' tool me details daaliye, main turant STAR bullet points bana dunga!`,
       suggestedChips: [
         'Resume bullets generate karein',
         'Cold DM template for alumni',
@@ -84,7 +84,7 @@ export function getFallbackChatResponse(query: string, profile: StudentProfile):
 
   // General default fallback
   return {
-    text: `Aapka sawaal bohot sahi hai, ${profile.name}! Sahayak Bhaiya yahan aapke tier-2/3 college journey ko empower karne ke liye hain.\n\n` +
+    text: `Aapka sawaal bohot sahi hai, ${profile.name}! Sahayata Bhaiya yahan aapke tier-2/3 college journey ko empower karne ke liye hain.\n\n` +
       `Aapke profile ke mutabiq (${profile.year}, ${profile.branch} - ${profile.city}):\n` +
       `1. **Right Opportunities**: Opportunity feed me check karein, humne aapke branch ke mutabiq verified internships aur hackathons filter kiye hain.\n` +
       `2. **Structured Roadmap**: Bina bhatke 6 hafte ka study plan follow karein.\n` +

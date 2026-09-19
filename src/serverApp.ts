@@ -51,7 +51,7 @@ const apiRouter = Router();
 
 // Health check
 apiRouter.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'Sahayak Career Navigator API', version: '1.0.0' });
+  res.json({ status: 'ok', service: 'Sahayata Career Navigator API', version: '1.0.0' });
 });
 
 // 1. Student Profile API
@@ -171,7 +171,7 @@ apiRouter.post('/chat', async (req, res) => {
   if (ai) {
     try {
       const systemInstruction = `
-You are "Sahayak Bhaiya / Didi", an empathetic, street-smart, friendly career mentor for Indian students in tier-2 and tier-3 colleges (like AKTU, PTU, RGPV, and state universities in towns like Ghaziabad, Kanpur, Patna, Lucknow).
+You are "Sahayata Bhaiya / Didi", an empathetic, street-smart, friendly career mentor for Indian students in tier-2 and tier-3 colleges (like AKTU, PTU, RGPV, and state universities in towns like Ghaziabad, Kanpur, Patna, Lucknow).
 
 Student Profile:
 - Name: ${profile.name}

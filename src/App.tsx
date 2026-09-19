@@ -30,7 +30,7 @@ export default function App() {
   // Student Profile state
   const [profile, setProfile] = useState<StudentProfile>(() => {
     try {
-      const saved = localStorage.getItem('sahayak_student_profile') || localStorage.getItem('udaan_student_profile');
+      const saved = localStorage.getItem('sahayata_student_profile') || localStorage.getItem('sahayak_student_profile') || localStorage.getItem('udaan_student_profile');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.warn('LocalStorage error:', e);
@@ -42,7 +42,7 @@ export default function App() {
   const [opportunities, setOpportunities] = useState<Opportunity[]>(INITIAL_OPPORTUNITIES);
   const [savedIds, setSavedIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('sahayak_saved_opps') || localStorage.getItem('udaan_saved_opps');
+      const saved = localStorage.getItem('sahayata_saved_opps') || localStorage.getItem('sahayak_saved_opps') || localStorage.getItem('udaan_saved_opps');
       if (saved) return JSON.parse(saved);
     } catch {
       // ignore
@@ -79,7 +79,7 @@ export default function App() {
   const handleSaveProfile = async (updated: StudentProfile) => {
     setProfile(updated);
     try {
-      localStorage.setItem('sahayak_student_profile', JSON.stringify(updated));
+      localStorage.setItem('sahayata_student_profile', JSON.stringify(updated));
       await fetch('/api/profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -100,7 +100,7 @@ export default function App() {
     }
     setSavedIds(next);
     try {
-      localStorage.setItem('sahayak_saved_opps', JSON.stringify(next));
+      localStorage.setItem('sahayata_saved_opps', JSON.stringify(next));
     } catch (e) {
       console.warn('Could not save bookmark', e);
     }
@@ -362,7 +362,7 @@ export default function App() {
             <div className="w-5 h-5 rounded-md bg-indigo-600 text-white flex items-center justify-center font-bold text-[10px]">
               स
             </div>
-            <span className="font-bold text-slate-800">Sahayak Career Navigator</span>
+            <span className="font-bold text-slate-800">Sahayata Career Navigator</span>
             <span className="text-slate-400">• Built for Bharat's Tier-2/3 Colleges</span>
           </div>
 

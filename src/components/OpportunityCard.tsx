@@ -58,7 +58,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
   const badge = getBadgeVisuals();
 
   const handleWhatsAppShare = () => {
-    const text = `Check out this ${opp.type} on Sahayak: "${opp.title}" by ${opp.organization}.\nStipend/Grant: ${opp.stipend_or_amount}\nDeadline: ${opp.deadline}\nApply here: ${opp.link}`;
+    const text = `Check out this ${opp.type} on Sahayata: "${opp.title}" by ${opp.organization}.\nStipend/Grant: ${opp.stipend_or_amount}\nDeadline: ${opp.deadline}\nApply here: ${opp.link}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
 

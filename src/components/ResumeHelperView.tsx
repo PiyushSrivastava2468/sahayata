@@ -102,7 +102,7 @@ export const ResumeHelperView: React.FC<ResumeHelperViewProps> = ({ profile, lan
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 mt-1">
           {language === 'hinglish'
-            ? 'Apne college project ki raw details daaliye—Sahayak AI unhe ATS-friendly STAR bullet points aur alumni cold message me transform kar dega.'
+            ? 'Apne college project ki raw details daaliye—Sahayata AI unhe ATS-friendly STAR bullet points aur alumni cold message me transform kar dega.'
             : 'Convert raw college project notes into quantified STAR resume bullets and polite LinkedIn cold messages.'}
         </p>
       </div>

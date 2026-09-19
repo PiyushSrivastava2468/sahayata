@@ -38,7 +38,7 @@ export const CareerChatView: React.FC<CareerChatViewProps> = ({
     {
       id: 'msg-welcome',
       sender: 'ai',
-      text: `Namaste ${profile.name}! Main hoon aapka **Sahayak Bhaiya** 🚀\n\n` +
+      text: `Namaste ${profile.name}! Main hoon aapka **Sahayata Bhaiya** 🚀\n\n` +
         `Tier-2 aur tier-3 engineering colleges ki realities main achhe se jaanta hoon—lab files likhne ka stress, 75% attendance ka pressure, aur campus me top companies ka na aana.\n\n` +
         `Aap mujhse be-jhijhak pooch sakte hain:\n` +
         `• 1st/2nd year me kaunse scholarships aur programs me apply karein?\n` +
@@ -127,13 +127,13 @@ export const CareerChatView: React.FC<CareerChatViewProps> = ({
         <div className="flex items-center gap-3">
           <div className="relative">
             <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-indigo-500 flex items-center justify-center text-slate-950 font-extrabold text-sm shadow-sm">
-              सहायक
+              सहायता
             </div>
             <span className="w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-900 absolute -bottom-0.5 -right-0.5"></span>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-bold text-sm text-white">Sahayak Bhaiya (AI Career Mentor)</h3>
+              <h3 className="font-bold text-sm text-white">Sahayata Bhaiya (AI Career Mentor)</h3>
               <span className="px-2 py-0.5 text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30">
                 Online
               </span>
@@ -228,7 +228,7 @@ export const CareerChatView: React.FC<CareerChatViewProps> = ({
         {isLoading && (
           <div className="flex items-center gap-2 p-3 bg-white rounded-2xl border border-slate-200/90 text-xs text-slate-500 w-fit">
             <RefreshCw className="w-4 h-4 animate-spin text-indigo-600" />
-            <span>Sahayak Bhaiya soch rahe hain...</span>
+            <span>Sahayata Bhaiya soch rahe hain...</span>
           </div>
         )}
         <div ref={messagesEndRef} />

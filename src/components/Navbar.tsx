@@ -42,9 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-xl tracking-tight text-slate-900">Sahayak</span>
+                <span className="font-extrabold text-xl tracking-tight text-slate-900">Sahayata</span>
                 <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-amber-100 text-amber-800 border border-amber-200">
-                  सहायक
+                  सहायता
                 </span>
               </div>
               <p className="text-[11px] font-medium text-slate-500 hidden sm:block">
@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <MessageSquareText className="w-4 h-4" />
-              <span>{language === 'hinglish' ? 'Sahayak Bhaiya (AI)' : 'AI Career Chat'}</span>
+              <span>{language === 'hinglish' ? 'Sahayata Bhaiya (AI)' : 'AI Career Chat'}</span>
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             </button>
 

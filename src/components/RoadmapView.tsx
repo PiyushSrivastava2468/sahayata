@@ -30,7 +30,7 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({ profile, language }) =
   // Load completed tasks from localStorage if available
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(`sahayak_tasks_${activeRoadmap.id}`) || localStorage.getItem(`udaan_tasks_${activeRoadmap.id}`);
+      const saved = localStorage.getItem(`sahayata_tasks_${activeRoadmap.id}`) || localStorage.getItem(`sahayak_tasks_${activeRoadmap.id}`) || localStorage.getItem(`udaan_tasks_${activeRoadmap.id}`);
       if (saved) {
         setCompletedTasks(JSON.parse(saved));
       } else {
@@ -50,7 +50,7 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({ profile, language }) =
     }
     setCompletedTasks(next);
     try {
-      localStorage.setItem(`sahayak_tasks_${activeRoadmap.id}`, JSON.stringify(next));
+      localStorage.setItem(`sahayata_tasks_${activeRoadmap.id}`, JSON.stringify(next));
     } catch (e) {
       console.warn('Could not save to localStorage', e);
     }
@@ -96,7 +96,7 @@ export const RoadmapView: React.FC<RoadmapViewProps> = ({ profile, language }) =
   };
 
   const handleWhatsAppShare = () => {
-    const text = `I'm following the "${activeRoadmap.title}" on Sahayak! Progress: ${percentComplete}% completed (${finishedCount}/${totalTasks} tasks).\nTarget: ${activeRoadmap.targetGoal}`;
+    const text = `I'm following the "${activeRoadmap.title}" on Sahayata! Progress: ${percentComplete}% completed (${finishedCount}/${totalTasks} tasks).\nTarget: ${activeRoadmap.targetGoal}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
     setCopiedShare(true);

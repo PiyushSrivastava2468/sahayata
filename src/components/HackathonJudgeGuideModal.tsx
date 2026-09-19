@@ -24,7 +24,7 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-900">
-                Sahayak (सहायक) – 2-Minute Hackathon Demo Guide
+                Sahayata (सहायता) – 2-Minute Hackathon Demo Guide
               </h2>
               <p className="text-xs text-slate-500">
                 AI Career & Opportunity Navigator for Tier-2/3 College Students
@@ -83,7 +83,7 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
             <div className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-indigo-300 transition flex items-start justify-between gap-3">
               <div>
                 <div className="font-bold text-slate-900 text-xs sm:text-sm">
-                  2. AI Career Mentor in Hinglish ("Sahayak Bhaiya")
+                  2. AI Career Mentor in Hinglish ("Sahayata Bhaiya")
                 </div>
                 <p className="text-xs text-slate-600 mt-1">
                   Ask questions like <em>"1st year EEE internship ideas"</em> or <em>"Non-CS branch se DSA kaise karein?"</em>. Notice the 3-step pragmatic advice grounded in free Indian resources (Striver, Babbar, Chai aur Code).
@@ -152,7 +152,7 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
               onClick={onClose}
               className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition shadow-xs"
             >
-              Start Exploring Sahayak
+              Start Exploring Sahayata
             </button>
           </div>
         </div>

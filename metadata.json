@@ -1,5 +1,5 @@
 {
-  "name": "Sahayak - AI Career & Opportunity Navigator",
+  "name": "Sahayata - AI Career & Opportunity Navigator",
   "description": "Multilingual (Hinglish + English) AI career assistant for tier-2/3 college students in India providing personalized internships, scholarships, skill roadmaps, and resume guidance.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
